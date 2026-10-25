@@ -1,6 +1,6 @@
 echo "Applying theme..."
 
-cd ../frontend
+cd $FRONTEND_ROOT
 
 read -p "Enter theme URL: " THEME_URL
 
