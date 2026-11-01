@@ -1,2 +1,0 @@
-echo "Cleaning frontend..."
-
