@@ -160,3 +160,22 @@ companion object {
 - Run `./gradlew spotlessApply` before committing
 - NO JPA, NO database dependencies
 - Use in-memory repositories extending `InMemoryMapRepository`
+
+## Running the Application
+
+### Using Run Scripts (Recommended)
+
+```bash
+./scripts/run-backend.sh   # Run backend only
+./scripts/run-frontend.sh # Run frontend only
+./scripts/run-all.sh      # Run both
+```
+
+### Manual Start
+
+```bash
+cd backend
+./gradlew bootRun
+```
+
+Backend runs on `http://localhost:8080`
