@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Pre-commit hook for backend spotless formatting
+# Runs spotlessCheck -> spotlessApply if there are changes in backend
+
+# Check if there are staged changes in backend directory
+if git diff --cached --name-only | grep -q "^backend/"; then
+    echo "Running spotlessCheck on backend..."
+    cd backend
+    
+    # Run spotlessCheck
+    ./gradlew spotlessCheck --quiet
+    
+    # If spotlessCheck failed, run spotlessApply
+    if [ $? -ne 0 ]; then
+        echo "Formatting issues found. Running spotlessApply..."
+        ./gradlew spotlessApply --quiet
+        
+        # Add formatted files back to staging
+        cd ..
+        git add backend/
+        echo "Backend files formatted and re-staged."
+    else
+        cd ..
+        echo "Backend formatting is clean."
+    fi
+fi
+
+exit 0

@@ -50,3 +50,16 @@ spotless {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.register("installGitHooks") {
+    val hooksDir = file("${rootProject.projectDir}/.git/hooks")
+    val preCommitSource = file("${rootProject.projectDir}/scripts/pre-commit")
+    val preCommitHook = file("${hooksDir}/pre-commit")
+
+    doLast {
+        hooksDir.mkdirs()
+        preCommitSource.copyTo(preCommitHook, overwrite = true)
+        preCommitHook.setExecutable(true)
+        println("Git pre-commit hook installed successfully.")
+    }
+}
