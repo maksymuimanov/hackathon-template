@@ -7,8 +7,6 @@ import squad.nononotaa.backend.util.logger
 
 @Configuration
 class ApplicationConfig {
-    val logger = logger()
-
     @Bean
     fun applicationRunner(
         applicationInitJobs: Iterable<ApplicationInitJob>,
@@ -18,5 +16,9 @@ class ApplicationConfig {
             it.execute()
             logger.info("Executed init job: {}", it::class.qualifiedName)
         }
+    }
+
+    companion object {
+        val logger = logger()
     }
 }
