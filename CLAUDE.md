@@ -28,3 +28,14 @@ See `.agents/skills/` for specialized guidance:
 - `git-commit` - Conventional commits
 - `brainstorming` - Design discussions
 - `writing-plans` - Implementation planning
+
+## Context
+
+See `.agents/context/` for architecture documentation and ADRs:
+- `backend-architecture.md` - Backend architecture decisions (in-memory persistence, repository pattern, package structure)
+- `frontend-architecture.md` - Frontend architecture decisions (Turborepo, App Router, shared UI package, Tailwind CSS 4)
+
+## Rules
+
+See `.agents/rules/` for agent constraints and prohibited actions:
+- `rules.md` - Architecture constraints, code quality, security, and workflow rules
